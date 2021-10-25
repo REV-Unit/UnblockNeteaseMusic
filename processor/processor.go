@@ -88,7 +88,7 @@ func RequestBefore(request *http.Request) *Netease {
 	netease := &Netease{Path: request.URL.Path}
 
 	if request.Method == http.MethodPost && (strings.Contains(netease.Path, "/eapi/") || strings.Contains(netease.Path, "/api/linux/forward")) {
-		if *config.BlockAds && (strings.Contains(netease.Path, "api/ad/") || strings.Contains(netease.Path, "api/clientlog/upload") || strings.Contains(netease.Path, "api/feedback/weblog")) {
+		if *config.BlockAds && (strings.Contains(netease.Path, "eapi/pl/count") || (strings.Contains(netease.Path,"log") && !strings.Contains(netease.Path,"login")) ||strings.Contains(netease.Path, "api/ad/")) {
 			return nil
 		}
 		request.Header.Del("x-napm-retry")
