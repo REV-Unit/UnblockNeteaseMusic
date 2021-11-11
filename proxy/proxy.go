@@ -235,6 +235,10 @@ func (h *HttpHandler) ServeHTTP(resp http.ResponseWriter, request *http.Request)
 					}
 				}
 				log.Printf("Direct:%s(%s)(%s)\n", requestURI, request.Host, request.Method)
+				if strings.Contains(requestURI,"log") && !strings.Contains(requestURI,"login") {
+					log.Println("Request Blocked:", requestURI)
+					return
+				}
 				response, err := network.Request(&network.ClientRequest{
 					Method:    request.Method,
 					RemoteUrl: requestURI,

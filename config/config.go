@@ -27,7 +27,7 @@ var (
 	ForceBestQuality   = flag.Bool("b", false, "force the best music quality")
 	SearchLimit        = flag.Int("sl", 0, "specify the number of songs searched on other platforms(the range is 0 to 3) ,such as : \"1\"")
 	BlockUpdate        = flag.Bool("bu", false, "block version update message")
-	BlockAds           = flag.Bool("ba", false, "block advertising requests")
+	BlockAds           = flag.Bool("ba", true, "block advertising requests")
 	EnableLocalVip     = flag.Bool("lv", false, "enable local vip")
 	UnlockSoundEffects = flag.Bool("sef", false, "unlock SoundEffects")
 	QQCookieFile       = flag.String("qc", "./qq.cookie", "specify cookies file ,such as : \"qq.cookie\"")
